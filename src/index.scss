@@ -1,0 +1,36 @@
+@use 'shared';
+
+$mainColor: blue;
+$titleColor: brown;
+
+%square-style {
+    width: 100px;
+    height: 100px;
+    background-color: $titleColor;
+}
+
+@mixin transformSquare($property) {
+    transform: $property;
+}
+
+html {
+    color: $mainColor;
+}
+
+#container {
+    h2 {
+        color: $titleColor;
+    }
+
+    p {
+        font-style: italic;
+    }
+}
+
+#square {
+    @extend %square-style;
+    @include transformSquare(rotate(45deg));
+    position: relative;
+    left: 100px;
+    top: 100px;
+}
